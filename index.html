@@ -4,59 +4,144 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AIStart</title>
+    <link rel="icon" href="favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav>
-        <div class="nav-container">
-            <a href="/" class="logo">AIStart</a>
-            <ul class="nav-links">
-                <li><a href="#features">Features</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#documentation">Documentation</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+    <div class="navbar">
+        <a href="/" class="logo"><img src="favicon.png" alt="icon" style="height: 30px;"></a>
+        <a href="/" class="logo">AIStart</a>
+        <ul class="nav-links">
+            <li><a href="#features" class="nav-link">Features</a></li>
+            <li><a href="#downloads" class="nav-link">Download</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#documentation" class="nav-link">Documentation</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+    </div>
+
     <header class="hero animate__animated animate__fadeIn">
         <h1>Welcome to AIStart</h1>
         <p>Your gateway to advanced AI solutions</p>
-        <a href="https://github.com/Abhinav2011VS/AIStart/" class="btn">Download Now</a>
+        <a href="#downloads" class="btn">Download Now</a>
     </header>
+
     <section id="features" class="features">
+        <br>
+        <br>
         <h2 class="animate__animated animate__fadeInUp">Features</h2>
         <div class="feature-container">
             <div class="feature animate__animated animate__zoomIn">
-                <h3>Feature 1</h3>
-                <p>Details about feature 1.</p>
+                <h3>AI</h3>
+                <p>Powered By AI</p>
             </div>
             <div class="feature animate__animated animate__zoomIn">
-                <h3>Feature 2</h3>
-                <p>Details about feature 2.</p>
+                <h3>Creative Dashboard</h3>
+                <p>A Clean Dashboard for easy use</p>
             </div>
             <div class="feature animate__animated animate__zoomIn">
-                <h3>Feature 3</h3>
-                <p>Details about feature 3.</p>
+                <h3>Free For All</h3>
+                <p>No Login/No Sign Up - Just Use</p>
             </div>
         </div>
     </section>
+
+    <section id="downloads" class="downloads">
+        <br>
+        <br>
+        <h2 class="animate__animated animate__fadeInUp" style="text-align: center;">Download</h2>
+    </section>
+
     <section id="about" class="about">
+        <br>
+        <br>
         <h2 class="animate__animated animate__fadeInUp">About AIStart</h2>
         <p class="animate__animated animate__fadeIn">AIStart is an open-source project dedicated to providing...</p>
     </section>
+
     <section id="documentation" class="documentation">
+        <br>
+        <br>
         <h2 class="animate__animated animate__fadeInUp">Documentation</h2>
         <a href="https://github.com/Abhinav2011VS/AIStart/" class="btn animate__animated animate__bounceIn">GitHub Repo</a>
     </section>
+
     <section id="contact" class="contact">
-        <h2 class="animate__animated animate__fadeInUp">Contact Us</h2>
-        <form class="contact-form animate__animated animate__fadeIn">
-            <input type="text" placeholder="Your Name">
-            <input type="email" placeholder="Your Email">
-            <textarea placeholder="Your Message"></textarea>
-            <button type="submit" class="btn">Send</button>
-        </form>
+        <div class="contact-overlay"></div>
+        <div class="contact-div">
+            <h2 class="animate__animated animate__fadeInUp">Contact Us</h2>
+            <form class="contact-form animate__animated animate__fadeIn">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+        
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+        
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" placeholder="Enter your message" rows="4" required></textarea>
+                </div>
+        
+                <button type="submit" class="btn">Send</button>
+            </form>
+        </div>        
     </section>
+
+    <section>
+        <br>
+    </section>
+
+    <button onclick="scrollToTop()" id="goTopBtn" title="Go to top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+    </button>
+
+    <script>
+        // Function to scroll to the top of the page
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    
+        // Show the button when user scrolls down 300px from the top
+        window.onscroll = function() {scrollFunction()};
+    
+        function scrollFunction() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                document.getElementById("goTopBtn").style.display = "block";
+            } else {
+                document.getElementById("goTopBtn").style.display = "none";
+            }
+        }
+    </script>
+
+    <script>
+        document.querySelectorAll('.nav-link').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+    
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                // Calculate the distance from the top
+                const offsetTop = targetElement.offsetTop;
+    
+                // Scroll to the calculated position
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+    
+                // Update the URL hash without jumping
+                window.history.pushState(null, null, `#${targetId}`);
+            });
+        });
+    </script>
 </body>
 </html>
