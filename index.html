@@ -24,7 +24,7 @@
     <header class="hero animate__animated animate__fadeIn">
         <h1>Welcome to AIStart</h1>
         <p>Your gateway to advanced AI solutions</p>
-        <a href="#downloads" class="download-link" style="background-color: chocolate;">Download Now</a>
+        <a href="#downloads" id="gotodownload" class="download-link" style="background-color: chocolate;">Download Now</a>
     </header>
 
     <section id="features" class="features">
@@ -128,6 +128,27 @@
         }
 
         document.querySelectorAll('.nav-link').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+    
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                // Calculate the distance from the top
+                const offsetTop = targetElement.offsetTop;
+    
+                // Scroll to the calculated position
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+    
+                // Update the URL without hash
+                window.history.pushState(null, null, '/');
+            });
+        });
+
+        document.querySelectorAll('gotodownload').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
     
