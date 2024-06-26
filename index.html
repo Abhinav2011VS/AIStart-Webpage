@@ -113,6 +113,7 @@
                 top: 0,
                 behavior: 'smooth'
             });
+            window.history.pushState(null, null, '/');
         }
     
         // Show the button when user scrolls down 300px from the top
@@ -126,10 +127,6 @@
             }
         }
 
-        window.history.pushState(null, null, `/`);
-    </script>
-
-    <script>
         document.querySelectorAll('.nav-link').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -146,8 +143,8 @@
                     behavior: 'smooth'
                 });
     
-                // Update the URL hash without jumping
-                window.history.pushState(null, null, `#${targetId}`);
+                // Update the URL without hash
+                window.history.pushState(null, null, '/');
             });
         });
     </script>
